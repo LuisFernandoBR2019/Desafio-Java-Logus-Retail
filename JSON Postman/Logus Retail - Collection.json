@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "cefa1b8f-527b-4246-bb02-5099bbf71f8a",
+		"name": "Logus Retail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Lista",
+			"item": [
+				{
+					"name": "read-all Paciente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/paciente/read-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"paciente",
+								"read-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read-all Medico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/medico/read-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"medico",
+								"read-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read-all Consultório",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/consultorio/read-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"consultorio",
+								"read-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read-all Consulta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/consulta/read-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"consulta",
+								"read-all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Criar Paciente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Luis Fernando da Silva\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/paciente/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"paciente",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Medico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"crm\": \"14.682\",\r\n  \"especialidade\": \"Clinico Geral\",\r\n  \"idade\": 29,\r\n  \"nome\": \"Dr. Roberto Silva\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/medico/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"medico",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Consulta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"consultorio\": {\r\n    \"id\": 1,\r\n    \"numeroConsultorio\": 1\r\n  },\r\n  \"dataHora\": \"2020-10-28T18:44:02.363Z\",\r\n  \"dataHoraFormatada\": \"2020-07-18T18:44\",\r\n  \"listaMedico\": [\r\n    {\r\n      \"id\": 1,\r\n      \"crm\": \"15.189\",\r\n      \"especialidade\": \"Cirurgiao\",\r\n      \"idade\": 25,\r\n      \"nome\": \"Dr. Rodrigo\"\r\n    },\r\n    {\r\n      \"id\": null,\r\n      \"crm\": null,\r\n      \"especialidade\": null,\r\n      \"idade\": null,\r\n      \"nome\": null\r\n    }\r\n  ],\r\n  \"paciente\": {\r\n    \"id\": 2\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/consulta/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"consulta",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Consultorio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroConsultorio\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/consultorio/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"consultorio",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

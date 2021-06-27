@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Logus Retail</title>
+</head>
+
+<body>
+	<div layout:fragment="body">
+		<div class="container-fluid">
+			<h1 class="mt-4">Consultas</h1>
+			<ol class="breadcrumb mb-4">
+				<li class="breadcrumb-item">Home</li>
+				<li class="breadcrumb-item active">Lista de consultas</li>
+			</ol>
+
+			<div class="card mb-4">
+				<div class="card-header">
+					<i></i>Consultas cadastradas
+				</div>
+				<div class="card-body">
+					
+					<div class="table-responsive">
+
+						<table class="table" width="100%">
+							<thead>
+								<tr>
+									<th>Nome do paciente</th>
+									<th>Nome do médico/médicos</th>
+									<th>Especialidade do médico/médicos</th>
+									<th>CRM do médico/médicos</th>
+									<th>Data/Hora</th>
+									<th>N° consultório</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr th:each="consulta : ${listaConsultas}">
+									<td th:text="${consulta.paciente.nome}"></td>
+
+									<td th:if="${consulta.listaMedico.size} == 1"
+										th:text="${consulta.listaMedico[0].nome}">
+									</td>
+									<td th:if="${consulta.listaMedico.size} == 2"
+										th:text="${consulta.listaMedico[0].nome} + ' / ' + ${consulta.listaMedico[1].nome}">
+									</td>
+
+									<td th:if="${consulta.listaMedico.size} == 1"
+										th:text="${consulta.listaMedico[0].especialidade}">
+									</td>
+									<td th:if="${consulta.listaMedico.size} == 2"
+										th:text="${consulta.listaMedico[0].especialidade} + ' / ' + ${consulta.listaMedico[1].especialidade}">
+									</td>
+
+									<td th:if="${consulta.listaMedico.size} == 1"
+										th:text="${consulta.listaMedico[0].crm}">
+									</td>
+									<td th:if="${consulta.listaMedico.size} == 2"
+										th:text="${consulta.listaMedico[0].crm} + ' / ' + ${consulta.listaMedico[1].crm}">
+									</td>
+
+									<td th:text="${consulta.dataHoraFormatada}"></td>
+									<td th:text="${consulta.consultorio.numeroConsultorio}"></td>
+
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

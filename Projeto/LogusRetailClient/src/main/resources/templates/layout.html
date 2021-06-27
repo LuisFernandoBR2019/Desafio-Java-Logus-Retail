@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta charset="UTF-8">
+	<title>Logus Retail</title>
+
+	<script src="/resources/js/jquery/jquery-3.4.1.min.js"></script>
+
+	<link href="/resources/css/styles.css" rel="stylesheet" />
+	<link href="/resources/css/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+	<script src="/resources/js/font-awesome/all.min.js"></script>
+
+</head>
+
+<body class="sb-nav-fixed">
+	<br>
+	<br>
+	<br>
+	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+		<a class="navbar-brand" th:href="@{/}">Logus Retail</a>
+		<button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+			<i class="fas fa-bars"></i>
+		</button>
+
+	</nav>
+	<div id="layoutSidenav">
+		<div id="layoutSidenav_nav">
+			<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+				<div class="sb-sidenav-menu">
+					<div class="nav">
+						<div class="sb-sidenav-menu-heading">Menu</div>
+
+						<a class="nav-link" th:href="@{/}">
+							<div class="sb-nav-link-icon">
+								Home
+							</div>
+						</a>
+
+						<div class="sb-sidenav-menu-heading">Opções</div>
+
+						<!-- Consulta-->
+						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConsulta"
+							aria-expanded="false">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-book-open"></i>
+							</div> Consulta
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseConsulta" aria-labelledby="headingOne"
+							data-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" th:href="@{/consulta/create}">Adicionar
+								</a>
+								<a class="nav-link" th:href="@{/consulta/list}">Listar
+								</a>
+							</nav>
+						</div>
+						
+						<!-- Consultorio-->
+						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConsultorio"
+							aria-expanded="false">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-book-open"></i>
+							</div> Consultorio
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseConsultorio" aria-labelledby="headingOne"
+							data-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" th:href="@{/consultorio/create}">Adicionar
+								</a>
+								<a class="nav-link" th:href="@{/consultorio/list}">Listar
+								</a>
+							</nav>
+						</div>
+						
+						<!-- Paciente-->
+						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePaciente"
+							aria-expanded="false">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-book-open"></i>
+							</div> Paciente
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapsePaciente" aria-labelledby="headingOne"
+							data-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" th:href="@{/paciente/create}">Adicionar
+								</a>
+								<a class="nav-link" th:href="@{/paciente/list}">Listar
+								</a>
+							</nav>
+						</div>
+						
+						<!-- Medico-->
+						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMedico"
+							aria-expanded="false">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-book-open"></i>
+							</div> Médico
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseMedico" aria-labelledby="headingOne"
+							data-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" th:href="@{/medico/create}">Adicionar
+								</a>
+								<a class="nav-link" th:href="@{/medico/list}">Listar
+								</a>
+							</nav>
+						</div>
+
+
+					</div>
+				</div>
+		</div>
+		</nav>
+	</div>
+
+	<div id="layoutSidenav_content">
+		<main>
+			<div layout:fragment="body"></div>
+		</main>
+		
+	</div>
+	</div>
+	<script src="/resources/js/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="/resources/js/scripts.js"></script>
+	<script src="/resources/js/datatable/jquery.dataTables.min.js"></script>
+	<script src="/resources/js/datatable/dataTables.bootstrap4.min.js"></script>
+	<script src="/resources/assets/demo/datatables-init.js"></script>
+</body>
+
+</html>

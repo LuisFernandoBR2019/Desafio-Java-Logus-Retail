@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Logus Retail</title>
+</head>
+
+<body>
+	<div layout:fragment="body">
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7">
+					<div class="card shadow-lg border-0 rounded-lg mt-5">
+						<div class="card-header">
+							<h3 class="text-center font-weight-light my-4">Cadastrar Médico</h3>
+						</div>
+						<div class="card-body">
+
+							<form th:action="@{/medico/create}" method="POST" th:object="${medico}">
+
+								<div class="form-row">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="small mb-1" for="inputNome">Nome do Médico:</label>
+											<input type="text" id="inputNome" th:field="${medico.nome}">
+
+										</div>
+									</div>
+
+								</div>
+								<div class="form-row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="small mb-1" for="inputEspecialidade">Especialidade do
+												Médico:</label>
+											<input type="text" id="inputEspecialidade"
+												th:field="${medico.especialidade}">
+
+										</div>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="small mb-1" for="inputCrm">CRM do Médico:</label>
+											<input type="text" id="inputCrm" th:field="${medico.crm}">
+
+										</div>
+									</div>
+
+								</div>
+								<div class="form-row">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="small mb-1" for="inputIdade">Idade do Médico:</label>
+											<input type="number" id="inputIdade" th:field="${medico.idade}">
+
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group mt-4 mb-0">
+
+									<div class="alert alert-danger" th:if="${erros} != null" th:each="erro : ${erros}" th:text="${erro}"></div>
+
+								</div>
+								
+								<div class="form-group mt-4 mb-0">
+
+									<div class="alert alert-success" th:if="${criado} != null"  th:text="${criado}"></div>
+
+								</div>
+
+								<div class="form-group mt-4 mb-0">
+
+									<button type="submit" class="btn btn-primary btn-block">Adicionar médico</button>
+
+
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Logus Retail</title>
+</head>
+
+<body>
+	<div layout:fragment="body">
+		<div class="container-fluid">
+			<h1 class="mt-4">Pacientes</h1>
+			<ol class="breadcrumb mb-4">
+				<li class="breadcrumb-item">Home</li>
+				<li class="breadcrumb-item active">Lista de pacientes</li>
+			</ol>
+
+			<div class="card mb-4">
+				<div class="card-header">
+					<i class="fas fa-table mr-1"></i>Pacientes cadastrados
+				</div>
+
+				<div class="card-body">
+
+					<div class="table-responsive">
+
+						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th>Nome do paciente</th>
+
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr th:each="paciente : ${listaPacientes}">
+									<td th:text="${paciente.nome}"></td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

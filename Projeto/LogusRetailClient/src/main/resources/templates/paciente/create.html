@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Logus Retail</title>
+</head>
+
+<body>
+	<div layout:fragment="body">
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7">
+					<div class="card shadow-lg border-0 rounded-lg mt-5">
+						<div class="card-header">
+							<h3 class="text-center font-weight-light my-4">Cadastrar paciente</h3>
+						</div>
+						<div class="card-body">
+
+							<form th:action="@{/paciente/create}" method="POST" th:object="${paciente}">
+
+								<div class="form-row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="small mb-1" for="inputNome">Nome do paciente:</label>
+											<input type="text" id="inputNome"
+												th:field="${paciente.nome}">
+
+										</div>
+									</div>
+
+								</div>
+
+								<div class="form-group mt-4 mb-0">
+
+									<div class="alert alert-danger" th:if="${erros} != null" th:each="erro : ${erros}" th:text="${erro}"></div>
+
+								</div>
+								
+								<div class="form-group mt-4 mb-0">
+
+									<div class="alert alert-success" th:if="${criado} != null"  th:text="${criado}"></div>
+
+								</div>
+
+								<div class="form-group mt-4 mb-0">
+
+									<button type="submit" class="btn btn-primary btn-block">Adicionar paciente</button>
+
+
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
