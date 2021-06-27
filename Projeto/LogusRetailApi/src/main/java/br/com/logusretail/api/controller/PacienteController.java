@@ -59,8 +59,8 @@ public class PacienteController {
 
 	@PostMapping("/create")
 	public ResponseEntity<Map<String, String>> create(@RequestBody Paciente entity) {
-		Map<String, String> erros = new LinkedHashMap<>();
-		Map<String, String> response = new LinkedHashMap<>();
+		Map<String, String> erros = new HashMap<>();
+		Map<String, String> response = new HashMap<>();
 		erros = validarCreatePaciente(entity);
 
 		if (erros.isEmpty()) {
@@ -73,7 +73,7 @@ public class PacienteController {
 	}
 
 	private Map<String, String> validarCreatePaciente(Paciente entity) {
-		Map<String, String> erros = new LinkedHashMap<>();
+		Map<String, String> erros = new HashMap<>();
 		if (entity.getNome() == null || entity.getNome().isEmpty()) {
 			erros.put("pacienteCampo", "Campo paciente em branco.");
 		}

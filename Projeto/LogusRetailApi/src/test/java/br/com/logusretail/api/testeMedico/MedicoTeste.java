@@ -51,7 +51,7 @@ class MedicoTeste {
 
 		entity.setNome("Dr. Rodrigo");
 		entity.setEspecialidade("Cirurgiao");
-		entity.setCrm("15.189");
+		entity.setCrm("15.145");
 		entity.setIdade(25);
 
 		Map<String, String> resposta = null;
@@ -188,6 +188,36 @@ class MedicoTeste {
 		}
 
 		assertEquals(resultadoEsperado.get("medicoCampoCrm"), resposta.get("medicoCampoCrm"));
+	}
+	
+	@Test
+	public void criarMedicoComCampoCrmDuplicado() {
+		Map<String, String> resultadoEsperado = new LinkedHashMap<>();
+		resultadoEsperado.put("medicoCampoCrmUnique", "Este CRM já está cadastrado.");
+		Medico entity = new Medico();
+
+		entity.setNome("Dr. Drauzio");
+		entity.setEspecialidade("Oftamologista");
+		entity.setCrm("15.189");
+		entity.setIdade(51);
+
+		Map<String, String> resposta = null;
+		String endpoint = "http://localhost:8082/api/v1/medico/create";
+		RestTemplate restTemplate = new RestTemplate();
+
+		try {
+
+			HttpEntity<Medico> httpEntity = new HttpEntity<Medico>(entity);
+
+			ResponseEntity<?> responseEntity = restTemplate.exchange(endpoint, HttpMethod.POST, httpEntity, Map.class);
+
+			resposta = (Map<String, String>) responseEntity.getBody();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		assertEquals(resultadoEsperado.get("medicoCampoCrmUnique"), resposta.get("medicoCampoCrmUnique"));
 	}
 
 	@Test

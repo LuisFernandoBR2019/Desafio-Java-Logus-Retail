@@ -31,6 +31,8 @@ public class MedicoController {
 
 				model.addAttribute("erros", "Campos em branco");
 
+			}else if (resposta.containsKey("medicoCampoCrmUnique")) {
+				model.addAttribute("erros", "Este CRM já está cadastrado.");
 			}
 		} else {
 			model.addAttribute("criado", "Médico cadastrado com sucesso.");

@@ -71,9 +71,9 @@ public class ConsultaController {
 	@PostMapping("/create")
 	public ResponseEntity<Map<String, String>> create(@RequestBody Consulta entity) {
 
-		Map<String, String> response = new LinkedHashMap<>();
+		Map<String, String> response = new HashMap<>();
 
-		Map<String, String> erros = new LinkedHashMap<>();
+		Map<String, String> erros = new HashMap<>();
 		if (entity.getDataHora() == null) {
 			entity = validarHoraDataFormato(entity);
 		}

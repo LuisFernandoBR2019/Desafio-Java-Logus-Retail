@@ -59,8 +59,8 @@ public class MedicoController {
 
 	@PostMapping("/create")
 	public ResponseEntity<Map<String, String>> create(@RequestBody Medico entity) {
-		Map<String, String> erros = new LinkedHashMap<>();
-		Map<String, String> response = new LinkedHashMap<>();
+		Map<String, String> erros = new HashMap<>();
+		Map<String, String> response = new HashMap<>();
 		erros = validarCreateMedico(entity);
 
 		if (erros.isEmpty()) {
@@ -73,7 +73,7 @@ public class MedicoController {
 	}
 
 	private Map<String, String> validarCreateMedico(Medico entity) {
-		Map<String, String> erros = new LinkedHashMap<>();
+		Map<String, String> erros = new HashMap<>();
 		if (entity.getNome() == null || entity.getNome().isEmpty()) {
 			erros.put("medicoCampoNome", "Campo nome em branco.");
 		}
@@ -89,6 +89,17 @@ public class MedicoController {
 		if (entity.getIdade() == null) {
 			erros.put("medicoCampoIdade", "Campo idade em branco.");
 		}
+		
+		if(erros.isEmpty()) {
+			Map<String, Object> criteria = new HashMap<>();
+			List<Medico> listaMedico = medicoService.readAll(criteria);
+			for (Medico medico : listaMedico) {
+				if (medico.getCrm().equals(entity.getCrm())) {
+					erros.put("medicoCampoCrmUnique", "Este CRM já está cadastrado.");
+				}
+			}
+		}
+		
 		return erros;
 	}
 
